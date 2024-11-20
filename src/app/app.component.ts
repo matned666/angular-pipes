@@ -27,7 +27,16 @@ export class AppComponent {
     25, 37, 19, -4, 28, 21, 19, 28, 33, 31, 9, 11, 5, -12, -5,
   ];
 
-  onReset(index: number) {
-    this.historicTemperatures[index] = 18;
+  onReset(num: string | number) {
+    const newTemps = [...this.historicTemperatures];
+    let index = 0;
+    for (let i = 0; i < newTemps.length; i++) {
+      if (num === newTemps[i]) {
+        index = i;
+        break;
+      }
+    }
+    newTemps[index] = 18;
+    this.historicTemperatures = newTemps;
   }
 }
